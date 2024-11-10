@@ -2,7 +2,6 @@ import time
 from datetime import timedelta, datetime
 from threading import Thread
 from warnings import catch_warnings
-
 from pandas.core.interchange.dataframe_protocol import DataFrame
 from selenium import webdriver
 from selenium.webdriver import ActionChains
@@ -12,14 +11,13 @@ import pandas as pd
 import threading
 from pathlib import Path
 from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.support.wait import WebDriverWait
-from winerror import NOERROR
 import polars as pl
-
 import requests
 from bs4 import BeautifulSoup as bs, BeautifulSoup
 from selenium.webdriver.chrome.options import Options
+
+semaphore = threading.Semaphore(10)
 
 def filter1(url):
     resp = requests.get(url)
@@ -37,14 +35,12 @@ def filter1(url):
     'Names': names2,
     })
     df.write_csv('stocks/names.csv')
-    filter2(url)
+    filter2()
 
-def filter2(url):
+def filter2():
     df=pl.read_csv('stocks/names.csv')
     names=df['Names']
     newNames=[]
-    oldNames=[]
-    oldDates=[]
     newDates=[]
     for n in names:
         try:
@@ -55,166 +51,126 @@ def filter2(url):
                 if date_obj.isoweekday()==5:
                     date_obj += timedelta(days=3)
                     if not date_obj>datetime.now():
-                        oldNames.append(n)
-                        oldDates.append(date_obj)
+                        newNames.append(n)
+                        newDates.append(date_obj)
                 else:
-                    oldNames.append(n)
-                    oldDates.append(date_obj)
+                    newNames.append(n)
+                    newDates.append(date_obj)
         except:
             newNames.append(n)
             newDates.append(datetime(2014, 1, 1))
 
     print("FINISHED CATEGORIZING")
-    if len(newNames)>4:
-        percent=0.25
-        arr1=newNames[:int(len(newNames)*percent)]
-        arr2=newNames[int(len(newNames)*percent):int(len(newNames)*(percent*2))]
-        arr3=newNames[int(len(newNames)*percent*2):int(len(newNames)*(percent*3))]
-        arr4=newNames[int(len(newNames)*percent*3):]
-        darr1 = newDates[:int(len(newDates) * percent)]
-        darr2 = newDates[int(len(newDates) * percent):int(len(newDates) * (percent * 2))]
-        darr3 = newDates[int(len(newDates) * percent * 2):int(len(newDates) * (percent * 3))]
-        darr4 = newDates[int(len(newDates) * percent * 3):]
-        threads=[]
-        threads.append(threading.Thread(target=update, args=(darr1,arr1,url,False), name="1"))
-        threads.append(threading.Thread(target=update, args=(darr2,arr2,url,False), name="2"))
-        threads.append(threading.Thread(target=update, args=(darr3,arr3,url,False), name="3"))
-        threads.append(threading.Thread(target=update, args=(darr4,arr4,url,False), name="4"))
-        for t in threads:
-            t.start()
-        for t in threads:
-            t.join()
-        print("FINISHED")
-    elif len(newNames)>0:
-        update(newDates,newNames,url,False)
-    filter3(oldNames,oldDates)
+    filter3(newNames,newDates)
+    print(len(newNames))
 
 def filter3(newNames,newDates):
     print("STARTED FILTER3")
-    if len(newNames)>4:
-        percent=0.25
-        arr1=newNames[:int(len(newNames)*percent)]
-        arr2=newNames[int(len(newNames)*percent):int(len(newNames)*(percent*2))]
-        arr3=newNames[int(len(newNames)*percent*2):int(len(newNames)*(percent*3))]
-        arr4=newNames[int(len(newNames)*percent*3):]
-        darr1 = newDates[:int(len(newDates) * percent)]
-        darr2 = newDates[int(len(newDates) * percent):int(len(newDates) * (percent * 2))]
-        darr3 = newDates[int(len(newDates) * percent * 2):int(len(newDates) * (percent * 3))]
-        darr4 = newDates[int(len(newDates) * percent * 3):]
-        threads=[]
-        threads.append(threading.Thread(target=update, args=(darr1,arr1,url,True), name="1f3"))
-        threads.append(threading.Thread(target=update, args=(darr2,arr2,url,True), name="2f3"))
-        threads.append(threading.Thread(target=update, args=(darr3,arr3,url,True), name="3f3"))
-        threads.append(threading.Thread(target=update, args=(darr4,arr4,url,True), name="4f3"))
-        for t in threads:
-            t.start()
-        for t in threads:
-            t.join()
-    elif len(newNames)>0:
-        update(newDates,newNames,url,True)
+    threads=[]
+    for n,d in zip(newNames,newDates):
+        rewrite=False
+        if d!=datetime(2014, 1, 1):
+            rewrite=True
+        threads.append(threading.Thread(target=update, args=(d, n, rewrite), name=f"{n}"))
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
     print("FINISHED FILTER3")
 
-def update(dates,names,url,rewrite):
-    id=threading.current_thread().name
-    time_start=time.time()
-    count=0
-    print(f'STARTED WITH {id}')
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(options=chrome_options)
-    driver.set_page_load_timeout(60)
-    driver.set_script_timeout(60)
-    driver.implicitly_wait(10)
-    driver.get(url)
-    print(f'OPENED WITH {id}')
-    date_to = datetime.today()
-    for name,date in zip(names,dates):
-        interval = timedelta(days=365)
-        Input = driver.find_element(By.ID, 'Code')
-        Input.send_keys(name)
-        current_date = date
-        new_list=[]
-        while current_date < date_to:
-            end_date=current_date + interval
-            if end_date > date_to:
-                end_date = date_to
-
-            try:
-                fromDateInput = driver.find_element(By.ID, 'FromDate')
-                toDateInput = driver.find_element(By.ID, 'ToDate')
-                btn = driver.find_element(By.CLASS_NAME, 'btn-primary-sm')
-                fromDateInput.clear()
-                fromDateInput.send_keys(current_date.strftime('%d.%m.%Y'))
-                toDateInput.clear()
-                toDateInput.send_keys(end_date.strftime('%d.%m.%Y'))
-                btn.click()
-            except:
-                time_end=time.time()
-                print(f"INPUTS ARE NOT FOUND FOR THREAD {id} WHILE PROCESSING {count} AFTER {time_end-time_start:.2f}")
-                print(f'FAILED WITH THREAD {id} WITH {len(names)-count} ELEMENTS LEFT')
-                return
-            # TO DO
-            try:
-                WebDriverWait(driver, 0.5).until(EC.presence_of_all_elements_located((By.TAG_NAME, 'tr')))
-                time.sleep(0.5)
-            except:
-                if current_date + interval > date_to:
+def update(date, name, rewrite):
+    with semaphore:
+        count=0
+        while True:
+            dataSecurity=True
+            id=threading.current_thread().name
+            url=f'https://www.mse.mk/mk/stats/symbolhistory/{name}'
+            chrome_options = Options()
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--disable-gpu")
+            chrome_options.add_argument("--no-sandbox")
+            driver = webdriver.Chrome(options=chrome_options)
+            driver.set_page_load_timeout(60)
+            driver.set_script_timeout(60)
+            driver.implicitly_wait(5)
+            driver.get(url)
+            date_to = datetime.today()
+            interval = timedelta(days=365)
+            current_date = date
+            new_list=[]
+            while current_date < date_to:
+                end_date=current_date + interval
+                if end_date > date_to:
+                    end_date = date_to
+                try:
+                    fromDateInput = driver.find_element(By.ID, 'FromDate')
+                    toDateInput = driver.find_element(By.ID, 'ToDate')
+                    btn = driver.find_element(By.CLASS_NAME, 'btn-primary-sm')
+                    fromDateInput.clear()
+                    fromDateInput.send_keys(current_date.strftime('%d.%m.%Y'))
+                    toDateInput.clear()
+                    toDateInput.send_keys(end_date.strftime('%d.%m.%Y'))
+                    btn.click()
+                except:
+                    count+=1
+                    print(f'FAILED WITH THREAD {id} FOR {count} from {current_date} to {end_date}')
+                    dataSecurity=False
                     break
+                try:
+                    WebDriverWait(driver, 0.5).until(EC.presence_of_all_elements_located((By.TAG_NAME, 'tr')))
+                    time.sleep(0.5)
+                except:
+                    if current_date + interval > date_to:
+                        break
+                    else:
+                        current_date=end_date
+                        continue
+                try:
+                    table = driver.find_element(By.CSS_SELECTOR, '#resultsTable > tbody:nth-child(2)')
+                    soup = BeautifulSoup(table.get_attribute('innerHTML'), 'html.parser')
+                    elements = soup.find_all('tr')
+                    for i in range(len(elements)+1):
+                        tds = elements[-i].find_all('td')
+                        stock={
+                            "Date":tds[0].text,
+                            "last_traded_price":tds[1].text,
+                            "max":tds[2].text,
+                            "min":tds[3].text,
+                            "avg_price":tds[4].text,
+                            "promet":tds[5].text,
+                            "volume":tds[6].text,
+                            "promet_BEST":tds[7].text,
+                            "promet_vo_denari":tds[8].text
+                        }
+                        new_list.append(stock)
+                except:
+                    if current_date + interval > date_to:
+                        break
+                    else:
+                        current_date = end_date
+                        continue
+                current_date = end_date
+                if rewrite:
+                    df=pd.read_csv(f'./stocks/data/{name}.csv')
+                    newdf=pd.DataFrame(new_list)
+                    df = pd.concat([df, newdf], ignore_index=True)
+                    df.to_csv(f'./stocks/data/{name}.csv', index=False)
                 else:
-                    current_date=end_date
-                    continue
-            try:
-                table = driver.find_element(By.CSS_SELECTOR, '#resultsTable > tbody:nth-child(2)')
-                soup = BeautifulSoup(table.get_attribute('innerHTML'), 'html.parser')
-                elements = soup.find_all('tr')
-                for i in range(len(elements)+1):
-                    tds = elements[-i].find_all('td')
-                    date = tds[0].text
-                    last_traded_price = tds[1].text
-                    max= tds[2].text
-                    min = tds[3].text
-                    avg_price = tds[4].text
-                    promet = tds[5].text
-                    volume = tds[6].text
-                    promet_BEST = tds[7].text
-                    promet_vo_denari = tds[8].text
-                    stock={
-                        "Date":date,
-                        "last_traded_price":last_traded_price,
-                        "max":max,
-                        "min":min,
-                        "avg_price":avg_price,
-                        "promet":promet,
-                        "volume":volume,
-                        "promet_BEST":promet_BEST,
-                        "promet_vo_denari":promet_vo_denari
-                    }
-                    new_list.append(stock)
-            except:
-                print(f"No data for {name} from {current_date} to {end_date}")
-                if current_date + interval > date_to:
-                    break
-                else:
-                    current_date = end_date
-                    continue
-            current_date = end_date
-        if rewrite:
-            df=pd.read_csv(f'./stocks/data/{name}.csv')
-            newdf=pd.DataFrame(new_list)
-            df = pd.concat([df, newdf], ignore_index=True)
-            df.to_csv(f'./stocks/data/{name}.csv', index=False)
-        else:
-            df=pl.DataFrame(new_list)
-            df.write_csv(f'stocks/data/{name}.csv')
-        count+=1
-        print(f"FINISHED with {name} from thread {id}, COUNT={count}")
-    driver.quit()
+                    df=pl.DataFrame(new_list)
+                    df.write_csv(f'stocks/data/{name}.csv')
+            count+=1
+            driver.quit()
+            if dataSecurity is False:
+                continue
+            print(f"FINISHED with {name} from thread {id}")
+            break
 
 if __name__ == '__main__':
     now=time.time()
     url='https://www.mse.mk/mk/stats/symbolhistory/ALK'
     filter1(url)
     now2=time.time()
+    folder_path = Path('stocks/data')
+    file_count = len([f for f in folder_path.iterdir() if f.is_file()])
+    print(f"There are {file_count} files in the folder.")
     print(f"Function took {(now2-now)/60:.2f} minutes to complete.")
