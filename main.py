@@ -16,25 +16,26 @@ import polars as pl
 import requests
 from bs4 import BeautifulSoup as bs, BeautifulSoup
 from selenium.webdriver.chrome.options import Options
+from xlwings.mac_dict import elements
 
-semaphore = threading.Semaphore(10)
+semaphore = threading.Semaphore(6)
 
 def filter1(url):
-    resp = requests.get(url)
-    soup = bs(resp.text, 'html.parser')
-    names = soup.find_all('option')
-    names = [str(n.text) for n in names]
-    names2=[]
-    for n in names:
-        if any(char.isdigit() for char in n):
-            continue
-        else:
-            names2.append(n)
-    print(len(names2))
-    df=pl.DataFrame({
-    'Names': names2,
-    })
-    df.write_csv('stocks/names.csv')
+    # resp = requests.get(url)
+    # soup = bs(resp.text, 'html.parser')
+    # names = soup.find_all('option')
+    # names = [str(n.text) for n in names]
+    # names2=[]
+    # for n in names:
+    #     if any(char.isdigit() for char in n):
+    #         continue
+    #     else:
+    #         names2.append(n)
+    # print(len(names2))
+    # df=pl.DataFrame({
+    # 'Names': names2,
+    # })
+    # df.write_csv('stocks/names.csv')
     filter2()
 
 def filter2():
@@ -53,7 +54,7 @@ def filter2():
                     if not date_obj>datetime.now():
                         newNames.append(n)
                         newDates.append(date_obj)
-                else:
+                elif date_obj+timedelta(days=1)<datetime.now():
                     newNames.append(n)
                     newDates.append(date_obj)
         except:
@@ -85,15 +86,6 @@ def update(date, name, rewrite):
             dataSecurity=True
             id=threading.current_thread().name
             url=f'https://www.mse.mk/mk/stats/symbolhistory/{name}'
-            chrome_options = Options()
-            chrome_options.add_argument("--headless")
-            chrome_options.add_argument("--disable-gpu")
-            chrome_options.add_argument("--no-sandbox")
-            driver = webdriver.Chrome(options=chrome_options)
-            driver.set_page_load_timeout(60)
-            driver.set_script_timeout(60)
-            driver.implicitly_wait(5)
-            driver.get(url)
             date_to = datetime.today()
             interval = timedelta(days=365)
             current_date = date
@@ -102,33 +94,20 @@ def update(date, name, rewrite):
                 end_date=current_date + interval
                 if end_date > date_to:
                     end_date = date_to
-                try:
-                    fromDateInput = driver.find_element(By.ID, 'FromDate')
-                    toDateInput = driver.find_element(By.ID, 'ToDate')
-                    btn = driver.find_element(By.CLASS_NAME, 'btn-primary-sm')
-                    fromDateInput.clear()
-                    fromDateInput.send_keys(current_date.strftime('%d.%m.%Y'))
-                    toDateInput.clear()
-                    toDateInput.send_keys(end_date.strftime('%d.%m.%Y'))
-                    btn.click()
-                except:
-                    count+=1
+                payload={
+                    "FromDate":current_date.strftime('%d.%m.%Y'),
+                    'ToDate':end_date.strftime('%d.%m.%Y')
+                }
+                resp=requests.post(url, data=payload)
+                if resp.status_code!=200:
+                    count += 1
                     print(f'FAILED WITH THREAD {id} FOR {count} from {current_date} to {end_date}')
-                    dataSecurity=False
+                    dataSecurity = False
                     break
                 try:
-                    WebDriverWait(driver, 0.5).until(EC.presence_of_all_elements_located((By.TAG_NAME, 'tr')))
-                    time.sleep(0.5)
-                except:
-                    if current_date + interval > date_to:
-                        break
-                    else:
-                        current_date=end_date
-                        continue
-                try:
-                    table = driver.find_element(By.CSS_SELECTOR, '#resultsTable > tbody:nth-child(2)')
-                    soup = BeautifulSoup(table.get_attribute('innerHTML'), 'html.parser')
-                    elements = soup.find_all('tr')
+                    soup = BeautifulSoup(resp.text, 'html.parser')
+                    elements=soup.find_all('tr')
+                    elements=elements[1:]
                     for i in range(len(elements)+1):
                         tds = elements[-i].find_all('td')
                         stock={
@@ -143,6 +122,7 @@ def update(date, name, rewrite):
                             "promet_vo_denari":tds[8].text
                         }
                         new_list.append(stock)
+                        # print(stock)
                 except:
                     if current_date + interval > date_to:
                         break
@@ -159,7 +139,6 @@ def update(date, name, rewrite):
                     df=pl.DataFrame(new_list)
                     df.write_csv(f'stocks/data/{name}.csv')
             count+=1
-            driver.quit()
             if dataSecurity is False:
                 continue
             print(f"FINISHED with {name} from thread {id}")

@@ -4,7 +4,174 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77f9103c-28aa-425c-88ec-704ab1d0b367" name="Changes" comment="data safety added" />
+    <list default="true" id="77f9103c-28aa-425c-88ec-704ab1d0b367" name="Changes" comment="data safety added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ADIN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ALK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ALKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/AMEH.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/APTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ATPP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/AUMK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/BANA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/BGOR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/BIKF.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/BIM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/BLTU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/CBNG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/CDHV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/CEVI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/CKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/CKBKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/DEBA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/DIMI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/EDST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ELMA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ELNC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ENER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ENSA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/EUHA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/EUMK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/EVRO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/FAKM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/FERS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/FKTL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/FROT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/FUBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GALE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GDKM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GECK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GECT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GIMS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GRDN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GRNT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GRSN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GRZD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GTC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/GTRG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/IJUG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/INB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/INHO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/INOV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/INPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/INTP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/JAKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/JUSK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KARO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KDFO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KJUBI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KKST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KLST.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KMB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KMPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KOMU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KONF.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KONZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KORZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KPSS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KULT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/KVAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/LAJO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/LHND.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/LOTO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/LOZP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MAGP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MAKP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MAKS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MERM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MKSD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MLKR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MODA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MPOL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MPT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MPTE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MTUR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MZHE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/MZPU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/NEME.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/NOSK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/OBPP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/OILK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/OKTA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/OMOS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/OPFO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/OPTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ORAN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/OSPO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/OTEK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/PELK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/PGGV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/PKB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/POPK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/PPIV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/PROD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/PROT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/PTRS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RADE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/REPL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RIMI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RINS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RZEK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RZIT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RZIZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RZLE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RZLV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RZTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RZUG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/RZUS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SDOM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SIL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SKON.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SKP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SLAV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SNBT.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SNBTO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SOLN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SPAZ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SPAZP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SPOL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/SSPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/STB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/STBP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/STIL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/STOK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TAJM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TBKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TEAL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TEHN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TEL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TETE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TIKV.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TKPR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TKVS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TNB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TRDB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TRPS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TRUB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TSMP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TSZS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TTK.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/TTKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/UNI.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/USJE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/VARG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/VFPM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/VITA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/VROS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/VSC.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/VTKS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ZAS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ZILU.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ZILUP.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ZIMS.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ZKAR.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ZPKO.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ZPOG.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks/data/ZUAS.csv" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,21 +208,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="main" />
@@ -102,6 +269,8 @@
       <workItem from="1731236605213" duration="4639000" />
       <workItem from="1731242402280" duration="161000" />
       <workItem from="1731242572028" duration="8296000" />
+      <workItem from="1731446748701" duration="1365000" />
+      <workItem from="1731448133715" duration="2053000" />
     </task>
     <task id="LOCAL-00001" summary="weekend avoid functionality">
       <option name="closed" value="true" />
@@ -155,7 +324,18 @@
     <MESSAGE value="data safety added" />
     <option name="LAST_COMMIT_MESSAGE" value="data safety added" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>108</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Domashna1$main.coverage" NAME="main Coverage Results" MODIFIED="1731260129995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Domashna1$main.coverage" NAME="main Coverage Results" MODIFIED="1731450489609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
