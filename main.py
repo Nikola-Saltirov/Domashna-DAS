@@ -1,41 +1,30 @@
 import time
 from datetime import timedelta, datetime
-from threading import Thread
-from warnings import catch_warnings
-from pandas.core.interchange.dataframe_protocol import DataFrame
-from selenium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
 import pandas as pd
 import threading
 from pathlib import Path
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 import polars as pl
 import requests
 from bs4 import BeautifulSoup as bs, BeautifulSoup
-from selenium.webdriver.chrome.options import Options
-from xlwings.mac_dict import elements
 
 semaphore = threading.Semaphore(6)
 
 def filter1(url):
-    # resp = requests.get(url)
-    # soup = bs(resp.text, 'html.parser')
-    # names = soup.find_all('option')
-    # names = [str(n.text) for n in names]
-    # names2=[]
-    # for n in names:
-    #     if any(char.isdigit() for char in n):
-    #         continue
-    #     else:
-    #         names2.append(n)
-    # print(len(names2))
-    # df=pl.DataFrame({
-    # 'Names': names2,
-    # })
-    # df.write_csv('stocks/names.csv')
+    resp = requests.get(url)
+    soup = bs(resp.text, 'html.parser')
+    names = soup.find_all('option')
+    names = [str(n.text) for n in names]
+    names2=[]
+    for n in names:
+        if any(char.isdigit() for char in n):
+            continue
+        else:
+            names2.append(n)
+    print(len(names2))
+    df=pl.DataFrame({
+    'Names': names2,
+    })
+    df.write_csv('stocks/names.csv')
     filter2()
 
 def filter2():
