@@ -1,0 +1,70 @@
+header{
+    display: inline-block;
+    margin-left: 40%;
+}
+h1{
+    display: inline-block;
+    text-align: center;
+}
+a{
+    margin: 10px;
+    width: 170px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    color: black;
+
+}
+main{
+    display: inline-block;
+    margin-left: 40%;
+}
+h2{
+    border-style: solid;
+    border-color: black;
+    border-radius: 100px;
+    text-align: center;
+    padding: 10px;
+}
+p{
+    font-size: 20px;
+}
+
+#temp{
+    text-align: center;
+    width: 200px;
+    height: 30px;
+}
+#forma{
+    margin-left: 250px;
+}
+#idniProekcii{
+    display: inline-block;
+    width: 250px;
+    text-align: center;
+}
+#forma1{
+    border-style: solid;
+    border-width: 1px;
+    width: 300px;
+    height: 300px;
+}
+label{
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+select{
+    margin-bottom: 30px;
+}
+#grafik{
+    margin-left: 1000px;
+    margin-top: -300px;
+    width: 300px;
+    height: 300px;
+}
+iframe{
+    width: 300px;
+    height: 300px;
+}
