@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Domashna1.iml" filepath="$PROJECT_DIR$/.idea/Domashna1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Domashna-DAS.iml" filepath="$PROJECT_DIR$/.idea/Domashna-DAS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Domashna2/Tech-Prototype/Project/SPRING/main/main.iml" filepath="$PROJECT_DIR$/Domashna2/Tech-Prototype/Project/SPRING/main/main.iml" />
     </modules>
   </component>
 </project>

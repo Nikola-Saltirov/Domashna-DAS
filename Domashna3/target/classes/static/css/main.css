@@ -1,0 +1,120 @@
+body{
+    background-image: linear-gradient(to right, #000, #c49919);
+    height: 100vh;
+    color: white;
+    font-family: "Roboto Light", sans-serif;
+}
+.navbar{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c49919;
+    margin-bottom: 60px;
+}
+.navbar a{
+    text-decoration: none;
+    color: white;
+    font: 1.3em "Roboto Light", sans-serif;
+    margin: 0 50px;
+    display: inline-block;
+    padding: 10px;
+}
+a.round-border1{
+    border-radius: 50px;
+    border: solid 3px black;
+}
+p{
+    width: 80ch;
+}
+.oval1{
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: #c49919;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 50px;
+    border-radius: 20px;
+}
+section{
+    margin-bottom: 40px;
+}
+/*header{*/
+/*    display: inline-block;*/
+/*    margin-left: 40%;*/
+/*}*/
+/*.test{*/
+/*    background-color: green;*/
+/*    display: none;*/
+/*}*/
+/*h1{*/
+/*    display: inline-block;*/
+/*    text-align: center;*/
+/*}*/
+/*a{*/
+/*    margin: 10px;*/
+/*    width: 170px;*/
+/*    height: 30px;*/
+/*    font-size: 15px;*/
+/*    font-weight: bold;*/
+/*    font-style: normal;*/
+/*    color: black;*/
+
+/*}*/
+/*main{*/
+/*    display: inline-block;*/
+/*    margin-left: 40%;*/
+/*}*/
+/*h2{*/
+/*    border-style: solid;*/
+/*    border-color: black;*/
+/*    !*border-radius: 100px;*!*/
+/*    text-align: center;*/
+/*    padding: 10px;*/
+/*}*/
+/*p{*/
+/*    font-size: 20px;*/
+/*}*/
+
+/*#temp{*/
+/*    text-align: center;*/
+/*    width: 200px;*/
+/*    height: 30px;*/
+/*}*/
+/*#forma{*/
+/*    margin-left: 250px;*/
+/*}*/
+/*#idniProekcii{*/
+/*    display: inline-block;*/
+/*    width: 250px;*/
+/*    text-align: center;*/
+/*}*/
+/*#forma1{*/
+/*    border-style: solid;*/
+/*    border-width: 1px;*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*}*/
+/*label{*/
+/*    font-family: sans-serif;*/
+/*    font-weight: bold;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+/*select{*/
+/*    margin-bottom: 30px;*/
+/*}*/
+/*#grafik{*/
+/*    margin-left: 1000px;*/
+/*    margin-top: -300px;*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*}*/
+/*iframe{*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*}*/
+
