@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Projections</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
-<!--    <link rel="stylesheet" href="../static/css/main.css">-->
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
 </head>
 <body>
 <header>
     <h1>Твојот Дигитален Советник</h1>
-    <div>
+    <div class="navbar">
         <a href="/home">Home</a>
         <a href="/projections">Проекции</a>
         <a href="/history">Историски Податоци</a>
     </div>
 </header>
     <aside id="forma">
-    <h1 id="idniProekcii">IDNI Proekcii</h1>
-    <form id="forma1" th:action="@{/projections}" method="post">
-        <h2 id="temp">Postavki</h2>
+    <h1 class="oval1">Идни проекции</h1>
+    <form class="form-container" th:action="@{/projections}" method="post">
+        <h2 class="form-header">Postavki</h2>
         <div>
             <label for="tiker">Izberi tiker</label>
             <select id="tiker" name="tiker">
