@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>history</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
 </head>
 <body>
 <header>
@@ -14,8 +14,8 @@
         <a href="/history" class="round-border1">Историски Податоци</a>
     </div>
 </header>
-<aside id="forma">
-    <h1 id="idniProekcii">Istoriski</h1>
+<aside class="forma">
+    <h1 class="idniProekcii">Istoriski</h1>
     <form id="forma1" th:action="@{/history}" method="post">
         <h2 id="temp">Postavki</h2>
         <div>
