@@ -4,17 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="0836c61a-127b-45d1-8461-9279dbf50757" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/Domashna3/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/src/main/resources/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domashna3/src/main/resources/templates/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/src/main/resources/templates/history.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domashna3/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/src/main/resources/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domashna3/src/main/resources/templates/projections.html" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/src/main/resources/templates/projections.html" afterDir="false" />
     </list>
+=======
+    <list default="true" id="2b6d07b4-7e2c-4fac-bd58-4791d1ed5b84" name="Changes" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< Updated upstream
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -22,19 +27,28 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
+<<<<<<< Updated upstream
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2q49xSyzlDaDf0NEzvvu4KWsVWo" />
+=======
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2q7xTCJPbBUMzjzzfxXoFrpzrb8" />
+>>>>>>> Stashed changes
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+<<<<<<< Updated upstream
     "Application.MainApplication.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -82,11 +96,26 @@
     </configuration>
     <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="main" />
+=======
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/admin/OneDrive/Desktop/FINKI/Treta godina/Dizajn i Arhitektura na Softver/Domashna-DAS",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.MainTestApplication">
+    <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="main (1)" />
+>>>>>>> Stashed changes
       <option name="SPRING_BOOT_MAIN_CLASS" value="mk.ukim.finki.das.main.MainApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< Updated upstream
     <configuration name="MainTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="main (1)" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="mk.ukim.finki.das.main.MainTestApplication" />
@@ -96,15 +125,23 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+=======
+    <configuration name="MainTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="main (2)" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="mk.ukim.finki.das.main.MainTestApplication" />
+>>>>>>> Stashed changes
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< Updated upstream
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.MainTestApplication" />
       </list>
     </recent_temporary>
+=======
+>>>>>>> Stashed changes
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -117,6 +154,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< Updated upstream
       <changelist id="0836c61a-127b-45d1-8461-9279dbf50757" name="Changes" comment="" />
       <created>1733911226545</created>
       <option name="number" value="Default" />
@@ -126,6 +164,17 @@
       <workItem from="1733912465547" duration="1131000" />
       <workItem from="1733913612484" duration="1611000" />
       <workItem from="1733915243912" duration="12347000" />
+=======
+      <changelist id="2b6d07b4-7e2c-4fac-bd58-4791d1ed5b84" name="Changes" comment="" />
+      <created>1734027419630</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734027419630</updated>
+      <workItem from="1734027420719" duration="46000" />
+      <workItem from="1734702026757" duration="28000" />
+      <workItem from="1734702063289" duration="21000" />
+      <workItem from="1734702125568" duration="234000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
