@@ -32,17 +32,17 @@
                     <div>
                         <label for="prikaz">Изберете податок за приказ</label>
                         <select id="prikaz" name="prikaz">
-                            <option value="tmp1">tmp1</option>
-                            <option value="tmp2">tmp2</option>
-                            <option value="tmp3">tmp3</option>
+                            <option th:each="prikaz : ${prikazi}" th:value="${prikaz}"
+                                    th:text="${prikaz}"
+                                    th:selected="${prikaz == defaultPrikaz}"></option>
                         </select>
                     </div>
                     <div>
                         <label for="interval">Изберете интервал за прикажување</label>
                         <select id="interval" name="interval">
-                            <option value="tmp1">tmp1</option>
-                            <option value="tmp2">tmp2</option>
-                            <option value="tmp3">tmp3</option>
+                            <option th:each="vreme : ${vreminja}" th:value="${vreme}"
+                                    th:text="${vreme}"
+                                    th:selected="${vreme == defaultVreme}"></option>
                         </select>
                     </div>
                     <input type='submit' value='Submit' class="button">
