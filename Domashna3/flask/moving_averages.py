@@ -53,7 +53,6 @@ def MovingAverageCrossStrategy(tiker='ADIN', start_date=datetime.date.today(), e
     stock_df['Date'] = pd.to_datetime(stock_df['Date'], dayfirst=True)
     stock_df.set_index('Date', inplace=True)
     stock_df = stock_df.loc[start_date:end_date]
-    stock_df.to_csv('temp_result.csv', index=False)
     short_window_col = str(short_window) + '_' + moving_avg
     long_window_col = str(long_window) + '_' + moving_avg
 

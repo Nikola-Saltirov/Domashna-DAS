@@ -123,7 +123,7 @@ def update(date, name, rewrite):
                     df=pd.read_csv(f'./temp_stocks/temp_data/{name}.csv')
                     newdf=pd.DataFrame(new_list)
                     df = pd.concat([df, newdf], ignore_index=True)
-                    df.to_csv(f'./stocks/data/{name}.csv', index=False)
+                    df.to_csv(f'./temp_stocks/temp_data/{name}.csv', index=False)
                 else:
                     df=pl.DataFrame(new_list)
                     df.write_csv(f'temp_stocks/temp_data/{name}.csv')

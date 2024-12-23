@@ -2,8 +2,16 @@ import datetime
 
 from flask import Flask, send_file, jsonify, request, make_response
 import polars as pl
+
+from oscilators.DMI import calcDMI
+from oscilators.ao import calcAO
+from oscilators.cci import calcCCI
+from oscilators.cmo import calcCMO
+from oscilators.rsi import calcRSI
+from oscilators.stochastic_o import calcSO
 from web_scraper import filter1
 from moving_averages import MovingAverageCrossStrategy
+from oscilators import *
 app = Flask(__name__)
 
 @app.route('/startup', methods=['GET'])
@@ -25,14 +33,10 @@ def getNames():
 @app.route('/generate-image', methods=['GET'])
 def getImage():
 
-    metric = request.args.get('text', 'default_metric')
-    chart_type = request.args.get('color', 'line')
+    tiker = request.args.get('tiker', 'ALK')
+    interval = request.args.get('interval', '7')
+    prikaz = request.args.get('prikaz', 'SMA')
 
-    print(metric, chart_type)
-
-    tiker='ALK'
-    interval='30'
-    prikaz = 'SMA'
     today = datetime.date.today()
     last = today - datetime.timedelta(days=int(interval))
 
@@ -61,7 +65,22 @@ def getImage():
         short_window=2
         long_window=4
 
-    img_io=MovingAverageCrossStrategy(tiker=tiker, start_date=last, end_date=today, moving_avg=prikaz, short_window=short_window, long_window=long_window)
+    if prikaz == 'DMI':
+        img_io=calcDMI(tiker=tiker, interval=interval, start_date=last, end_date=today, short_window=short_window)
+    elif prikaz == 'AO':
+        today = datetime.date.today()
+        last = today - datetime.timedelta(days=int(44+int(interval)))
+        img_io=calcAO(tiker=tiker, interval=interval, start_date=last, end_date=today, short_window=short_window)
+    elif prikaz == 'CCI':
+        img_io=calcCCI(tiker=tiker, interval=interval, start_date=last, end_date=today, short_window=short_window)
+    elif prikaz == 'CMO':
+        img_io=calcCMO(tiker=tiker, interval=interval, start_date=last, end_date=today, short_window=short_window)
+    elif prikaz == 'RSI':
+        img_io=calcRSI(tiker=tiker, interval=interval, start_date=last, end_date=today, short_window=short_window)
+    elif prikaz == 'SO':
+        img_io=calcSO(tiker=tiker, interval=interval, start_date=last, end_date=today, short_window=short_window)
+    else:
+        img_io=MovingAverageCrossStrategy(tiker=tiker, start_date=last, end_date=today, moving_avg=prikaz, short_window=short_window, long_window=long_window)
 
     response = make_response(img_io.read())
     response.headers['Content-Type'] = 'image/png'

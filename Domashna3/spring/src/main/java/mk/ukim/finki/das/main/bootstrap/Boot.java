@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class Boot {
 
-    @PostConstruct
+//    @PostConstruct
     public void init(){
         String flaskUrl = "http://localhost:5000/startup";
 

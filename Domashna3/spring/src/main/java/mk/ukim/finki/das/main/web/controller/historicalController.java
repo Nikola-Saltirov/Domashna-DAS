@@ -29,17 +29,17 @@ public class historicalController {
         List<String> options=historicalServiceImpl.getNames();
         String defaultOption= options.get(0);
         List<String> prikazi=historicalServiceImpl.getPrikazi();
-        String defaulPrikazi=prikazi.get(0);
+        String defaulPrikazi="SMA";
         List<String> vreminja=historicalServiceImpl.getVreminja();
         String defaulVreme=prikazi.get(0);
-        String value="/img/tmp1.png";
+//        String value="/img/tmp1.png";
         model.addAttribute("options", options);
         model.addAttribute("default", defaultOption);
         model.addAttribute("prikazi", prikazi);
         model.addAttribute("defaultPrikaz", defaulPrikazi);
         model.addAttribute("vreminja", vreminja);
         model.addAttribute("defaultVreme", defaulVreme);
-        model.addAttribute("imageID", value);
+//        model.addAttribute("imageID", value);
         return "history";
     }
 
@@ -49,14 +49,14 @@ public class historicalController {
         List<String> prikazi=historicalServiceImpl.getPrikazi();
         List<String> vreminja=historicalServiceImpl.getVreminja();
         historicalServiceImpl.getImg(tiker,prikaz,interval);
-        String value="/img/tmp1.png";
+//        String value="/img/tmp1.png";
         model.addAttribute("default", tiker);
         model.addAttribute("options", options);
         model.addAttribute("prikazi", prikazi);
         model.addAttribute("defaultPrikaz", prikaz);
         model.addAttribute("vreminja", vreminja);
         model.addAttribute("defaultVreme", interval);
-        model.addAttribute("imageID", value);
+//        model.addAttribute("imageID", value);
         return "history";
     }
 }

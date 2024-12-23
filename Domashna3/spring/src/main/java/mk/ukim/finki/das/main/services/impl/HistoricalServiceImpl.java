@@ -58,29 +58,29 @@ public class HistoricalServiceImpl implements HistoricalService {
     @Override
     public List<String> getPrikazi() {
         List<String> prikazi = new ArrayList<>();
-        prikazi.add("Awesome Oscillator");
-        prikazi.add("DeMarket Indicator");
-        prikazi.add("Commodity Channel Index");
-        prikazi.add("Chande Momentum Oscillator");
-        prikazi.add("Stochastic Oscillator");
-        prikazi.add("Relative Strength Index");
-        prikazi.add("Simple Moving Average");
-        prikazi.add("Exponential Moving Average");
-        prikazi.add("Weighted Moving Average");
-        prikazi.add("Smoothed Moving Average");
-        prikazi.add("Volume Weighted Moving Average");
+        prikazi.add("AO");
+        prikazi.add("DMI");
+        prikazi.add("CCI");
+        prikazi.add("CMO");
+        prikazi.add("SO");
+        prikazi.add("RSI");
+        prikazi.add("SMA");
+        prikazi.add("EMA");
+        prikazi.add("WMA");
+        prikazi.add("SMMA");
+        prikazi.add("VWMA");
         return prikazi;
     }
 
     @Override
     public List<String> getVreminja() {
         List<String> vreminja = new ArrayList<>();
-        vreminja.add("7 Days");
-        vreminja.add("14 Days");
-        vreminja.add("30 Days");
-        vreminja.add("60 Days");
-        vreminja.add("120 Days");
-        vreminja.add("180 Days");
+        vreminja.add("7");
+        vreminja.add("14");
+        vreminja.add("30");
+        vreminja.add("60");
+        vreminja.add("120");
+        vreminja.add("180");
         return vreminja;
     }
 
