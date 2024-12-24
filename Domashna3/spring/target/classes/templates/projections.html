@@ -3,51 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Projections</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
-<!--    <link rel="stylesheet" href="../static/css/main.css">-->
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
 </head>
 <body>
 <header>
     <h1>Твојот Дигитален Советник</h1>
-    <div>
+    <div class="navbar">
         <a href="/home">Home</a>
-        <a href="/projections">Проекции</a>
+        <a href="/projections" class="round-border1">Проекции</a>
         <a href="/history">Историски Податоци</a>
     </div>
 </header>
-    <aside id="forma">
-    <h1 id="idniProekcii">IDNI Proekcii</h1>
-    <form id="forma1" th:action="@{/projections}" method="post">
-        <h2 id="temp">Postavki</h2>
-        <div>
-            <label for="tiker">Izberi tiker</label>
-            <select id="tiker" name="tiker">
-                <option th:each="option : ${options}" th:value="${option}"
-                        th:text="${option}"
-                        th:selected="${option == default}"></option>
-            </select>
-        </div>
-        <div>
-            <label for="prikaz">izberi podatok za prikaz</label>
-            <select id="prikaz" name="prikaz">
-                <option value="tmp1">tmp1</option>
-                <option value="tmp2">tmp2</option>
-                <option value="tmp3">tmp3</option>
-            </select>
-        </div>
-        <div>
-            <label for="interval">Izberi interval</label>
-            <select id="interval" name="interval">
-                <option value="tmp1">tmp1</option>
-                <option value="tmp2">tmp2</option>
-                <option value="tmp3">tmp3</option>
-            </select>
-        </div>
-        <input type='submit' value='Submit'>
-    </form>
+<h1>Идни проекции</h1>
+<div class="main-container">
+<aside class="left">
+    <div class="form-container">
+        <form id="forma1" th:action="@{/projections}" method="post">
+            <div class="oval1 width-full bg-gray2">Поставки</div>
+            <div class="selection-panel">
+                <div>
+                <label for="tiker">Изберете тикер</label>
+                <select id="tiker" name="tiker">
+                    <option th:each="option : ${options}" th:value="${option}"
+                            th:text="${option}"
+                            th:selected="${option == default}"></option>
+                </select>
+                </div>
+                <div>
+                <label for="prikaz">Изберете податок за приказ</label>
+                <select id="prikaz" name="prikaz">
+                    <option value="tmp1">tmp1</option>
+                    <option value="tmp2">tmp2</option>
+                    <option value="tmp3">tmp3</option>
+                </select>
+                </div>
+                <div>
+                <label for="interval">Изберете интервал за прикажување</label>
+                <select id="interval" name="interval">
+                    <option value="tmp1">tmp1</option>
+                    <option value="tmp2">tmp2</option>
+                    <option value="tmp3">tmp3</option>
+                </select>
+            </div>
+            <input type='submit' value='Submit' class="button">
+            </div>
+        </form>
+    </div>
+    <div class="suggestion-container">
+        <p th:text="${advice==null? 'Немој да инвестираш сега':advice}"></p>
+        <p class="suggestion">Немој да инвестираш сега</p>
+    </div>
 </aside>
-<aside id="grafik">
-    <iframe th:src="@{${imageID}}"></iframe>
+<aside class="right">
+    <div class="graph-frame">
+        <img th:src="${imageID}" alt="graph">
+    </div>
 </aside>
+</div>
 </body>
 </html>

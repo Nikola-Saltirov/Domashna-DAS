@@ -39,6 +39,7 @@ public class projectionController {
         model.addAttribute("default", tiker);
         model.addAttribute("options", options);
         model.addAttribute("imageID", path);
+        model.addAttribute("advice", "Инвестирај во "+tiker);
         return "projections";
     }
 }
