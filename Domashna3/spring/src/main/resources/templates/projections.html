@@ -18,31 +18,31 @@
 <div class="main-container">
 <aside class="left">
     <div class="form-container">
-        <form id="forma1" th:action="@{/projections}" method="post">
+        <form id="forma1" action="/projections" method="get">
             <div class="oval1 width-full bg-gray2">Поставки</div>
             <div class="selection-panel">
                 <div>
                 <label for="tiker">Изберете тикер</label>
                 <select id="tiker" name="tiker">
-                    <option th:each="option : ${options}" th:value="${option}"
-                            th:text="${option}"
-                            th:selected="${option == default}"></option>
+                    <option th:each="name : ${names}" th:value="${name}"
+                            th:text="${name}"
+                            th:selected="${name == defaultName}"></option>
                 </select>
                 </div>
-                <div>
-                <label for="prikaz">Изберете податок за приказ</label>
-                <select id="prikaz" name="prikaz">
-                    <option value="tmp1">tmp1</option>
-                    <option value="tmp2">tmp2</option>
-                    <option value="tmp3">tmp3</option>
-                </select>
-                </div>
+<!--                <div>-->
+<!--                <label for="prikaz">Изберете податок за приказ</label>-->
+<!--                <select id="prikaz" name="prikaz">-->
+<!--                    <option value="tmp1">tmp1</option>-->
+<!--                    <option value="tmp2">tmp2</option>-->
+<!--                    <option value="tmp3">tmp3</option>-->
+<!--                </select>-->
+<!--                </div>-->
                 <div>
                 <label for="interval">Изберете интервал за прикажување</label>
                 <select id="interval" name="interval">
-                    <option value="tmp1">tmp1</option>
-                    <option value="tmp2">tmp2</option>
-                    <option value="tmp3">tmp3</option>
+                    <option th:each="interval : ${intervals}" th:value="${interval}"
+                            th:text="${interval}"
+                            th:selected="${interval == defaultInterval}"></option>
                 </select>
             </div>
             <input type='submit' value='Submit' class="button">
@@ -56,9 +56,21 @@
 </aside>
 <aside class="right">
     <div class="graph-frame">
-        <img th:src="${imageID}" alt="graph">
+        <img id="generated-image" src="" alt="graph">
     </div>
 </aside>
 </div>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('forma1').onsubmit = function (event) {
+            event.preventDefault();
+            var tiker = document.getElementById('tiker').value;
+            var interval = document.getElementById('interval').value;
+            console.log(tiker)
+
+            document.getElementById('generated-image').src = "/get-flask-image/projections?tiker=" + tiker.toString() + "&interval=" + interval.toString();
+        };
+    });
+</script>
 </html>

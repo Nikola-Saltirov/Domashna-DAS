@@ -3,9 +3,11 @@ package mk.ukim.finki.das.main.services.impl;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import mk.ukim.finki.das.main.services.HistoricalService;
+import mk.ukim.finki.das.main.services.PredictionService;
 import org.springframework.core.io.Resource;
-import org.springframework.http.*;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,38 +17,30 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.web.client.RestTemplate;
-
 @Service
-public class HistoricalServiceImpl implements HistoricalService {
+public class PredictionServiceImpl implements PredictionService {
 
     private final RestTemplate restTemplate;
 
-    public HistoricalServiceImpl(RestTemplate restTemplate) {
+    public PredictionServiceImpl(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
     @Override
-    public List<String>getNames() {
+    public List<String> getNames() {
         String flaskUrl = "http://localhost:5000/get_names";
-
         // RestTemplate to make the GET request
         RestTemplate restTemplate = new RestTemplate();
-
         try {
             // Make GET request and receive response as String
             String jsonResponse = restTemplate.getForObject(flaskUrl, String.class);
-
             // Convert JSON string to List<String>
             ObjectMapper objectMapper = new ObjectMapper();
             List<String> strings = objectMapper.readValue(jsonResponse, new TypeReference<List<String>>() {});
-
             // Process the received strings
             System.out.println("Received strings from Flask: " + strings);
-
             // Return success response
             return strings;
         } catch (Exception e) {
@@ -56,45 +50,21 @@ public class HistoricalServiceImpl implements HistoricalService {
     }
 
     @Override
-    public List<String> getPrikazi() {
-        List<String> prikazi = new ArrayList<>();
-        prikazi.add("AO");
-        prikazi.add("DMI");
-        prikazi.add("CCI");
-        prikazi.add("CMO");
-        prikazi.add("SO");
-        prikazi.add("RSI");
-        prikazi.add("SMA");
-        prikazi.add("EMA");
-        prikazi.add("WMA");
-        prikazi.add("SMMA");
-        prikazi.add("VWMA");
-        return prikazi;
+    public List<String> getTimerIntervals() {
+        return List.of("7","14","30");
     }
 
     @Override
-    public List<String> getVreminja() {
-        List<String> vreminja = new ArrayList<>();
-        vreminja.add("7");
-        vreminja.add("14");
-        vreminja.add("30");
-        vreminja.add("60");
-        vreminja.add("120");
-        vreminja.add("180");
-        return vreminja;
-    }
-
-    @Override
-    public void getImg(String tiker, String prikaz, String interval) {
-        String flaskUrl = "http://localhost:5000/get_image";
-        String jsonBody = String.format("{\"tiker\": \"%s\", \"interval\": %s}, \"prikaz\": %s}", tiker, interval, prikaz);
+    public void getProjections(String tiker, String interval) {
+        String flaskUrl = "http://localhost:5000/get_projections";
+//        String jsonBody = String.format("{\"tiker\": \"%s\", \"interval\": %s}, \"prikaz\": %s}", tiker, interval, prikaz);
         ResponseEntity<Resource> response = restTemplate.exchange(
                 flaskUrl,
                 HttpMethod.POST,
                 null,
                 Resource.class
         );
-        StringBuilder stringBuilder=new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         if (response.getStatusCode() == HttpStatus.OK && response.getBody() != null) {
             try (InputStream inputStream = response.getBody().getInputStream()) {
                 // Save the image to a file

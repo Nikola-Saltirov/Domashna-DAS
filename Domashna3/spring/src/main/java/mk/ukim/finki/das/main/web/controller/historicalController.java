@@ -23,7 +23,6 @@ public class historicalController {
         this.historicalServiceImpl = historicalServiceImpl;
     }
 
-
     @GetMapping
     public String getHistoryPage(Model model) {
         List<String> options=historicalServiceImpl.getNames();
@@ -43,20 +42,4 @@ public class historicalController {
         return "history";
     }
 
-    @PostMapping
-    public String getHistoryImage(@RequestParam String tiker,@RequestParam String prikaz,@RequestParam String interval, Model model) {
-        List<String> options=historicalServiceImpl.getNames();
-        List<String> prikazi=historicalServiceImpl.getPrikazi();
-        List<String> vreminja=historicalServiceImpl.getVreminja();
-        historicalServiceImpl.getImg(tiker,prikaz,interval);
-//        String value="/img/tmp1.png";
-        model.addAttribute("default", tiker);
-        model.addAttribute("options", options);
-        model.addAttribute("prikazi", prikazi);
-        model.addAttribute("defaultPrikaz", prikaz);
-        model.addAttribute("vreminja", vreminja);
-        model.addAttribute("defaultVreme", interval);
-//        model.addAttribute("imageID", value);
-        return "history";
-    }
 }

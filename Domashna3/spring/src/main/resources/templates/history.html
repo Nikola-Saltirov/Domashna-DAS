@@ -65,7 +65,7 @@
             var prikaz = document.getElementById('prikaz').value;
             console.log(tiker)
 
-            document.getElementById('generated-image').src = "/get-flask-image?tiker=" + tiker.toString() + "&interval=" + interval.toString() + "&prikaz=" + prikaz.toString();
+            document.getElementById('generated-image').src = "/get-flask-image/history?tiker=" + tiker.toString() + "&interval=" + interval.toString() + "&prikaz=" + prikaz.toString();
         };
     });
 </script>
