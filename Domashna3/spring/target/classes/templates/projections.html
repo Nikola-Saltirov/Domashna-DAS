@@ -29,16 +29,8 @@
                             th:selected="${name == defaultName}"></option>
                 </select>
                 </div>
-<!--                <div>-->
-<!--                <label for="prikaz">Изберете податок за приказ</label>-->
-<!--                <select id="prikaz" name="prikaz">-->
-<!--                    <option value="tmp1">tmp1</option>-->
-<!--                    <option value="tmp2">tmp2</option>-->
-<!--                    <option value="tmp3">tmp3</option>-->
-<!--                </select>-->
-<!--                </div>-->
                 <div>
-                <label for="interval">Изберете интервал за прикажување</label>
+                <label for="interval">Изберете временски интервал (денови)</label>
                 <select id="interval" name="interval">
                     <option th:each="interval : ${intervals}" th:value="${interval}"
                             th:text="${interval}"
@@ -48,10 +40,6 @@
             <input type='submit' value='Submit' class="button">
             </div>
         </form>
-    </div>
-    <div class="suggestion-container">
-        <p th:text="${advice==null? 'Немој да инвестираш сега':advice}"></p>
-        <p class="suggestion">Немој да инвестираш сега</p>
     </div>
 </aside>
 <aside class="right">

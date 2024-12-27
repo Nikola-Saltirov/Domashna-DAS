@@ -32,7 +32,7 @@ public class projectionController {
 //        String value="/img/tmp1.png";
         List<String> tikeri = predictionService.getNames();
         model.addAttribute("defaultInterval", 7);
-        model.addAttribute("intervals", List.of(7,14,30));
+        model.addAttribute("intervals", List.of(7,14,30,210));
         model.addAttribute("names", tikeri);
         model.addAttribute("defaultName", tikeri.get(0));
 //        model.addAttribute("imageID", value);
