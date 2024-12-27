@@ -11,6 +11,7 @@ from oscilators.rsi import calcRSI
 from oscilators.stochastic_o import calcSO
 from web_scraper import filter1
 from moving_averages import MovingAverageCrossStrategy
+from lstm_model import StocksAveragePricePredictor
 from oscilators import *
 app = Flask(__name__)
 
@@ -30,8 +31,8 @@ def getNames():
     names = df['Names'].to_list()
     return jsonify(names)
 
-@app.route('/generate-image', methods=['GET'])
-def getImage():
+@app.route('/generate-image-history', methods=['GET'])
+def getImageHistory():
 
     tiker = request.args.get('tiker', 'ALK')
     interval = request.args.get('interval', '7')
@@ -82,6 +83,17 @@ def getImage():
     else:
         img_io=MovingAverageCrossStrategy(tiker=tiker, start_date=last, end_date=today, moving_avg=prikaz, short_window=short_window, long_window=long_window)
 
+    response = make_response(img_io.read())
+    response.headers['Content-Type'] = 'image/png'
+    return response
+
+@app.route('/generate-image-projections', methods=['GET'])
+def getImageProjections():
+    tiker = request.args.get('tiker', 'ALK')
+    interval = request.args.get('interval', '7')
+    predictor = StocksAveragePricePredictor(tiker, 7, int(interval), 'avg_price')
+    # predictor = StocksAveragePricePredictor(tiker,  7, 'avg_price')
+    img_io = predictor.predict_and_plot()
     response = make_response(img_io.read())
     response.headers['Content-Type'] = 'image/png'
     return response
