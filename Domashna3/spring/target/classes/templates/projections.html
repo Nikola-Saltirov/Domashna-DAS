@@ -44,7 +44,7 @@
 </aside>
 <aside class="right">
     <div class="graph-frame">
-        <img id="generated-image" src="" alt="graph">
+        <img id="generated-image" src="" alt="Graph">
     </div>
 </aside>
 </div>
@@ -56,7 +56,7 @@
             var tiker = document.getElementById('tiker').value;
             var interval = document.getElementById('interval').value;
             console.log(tiker)
-
+            document.getElementById('generated-image').alt='GENERATING IMAGE...'
             document.getElementById('generated-image').src = "/get-flask-image/projections?tiker=" + tiker.toString() + "&interval=" + interval.toString();
         };
     });

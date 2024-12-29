@@ -52,7 +52,7 @@
     </aside>
     <aside class="right">
         <div class="graph-frame">
-            <img id="generated-image" src="" alt="graph">
+            <img id="generated-image" src="" alt="Graph">
         </div>
     </aside>
 </div>
@@ -64,7 +64,7 @@
             var interval = document.getElementById('interval').value;
             var prikaz = document.getElementById('prikaz').value;
             console.log(tiker)
-
+            document.getElementById('generated-image').alt='GENERATING IMAGE...'
             document.getElementById('generated-image').src = "/get-flask-image/history?tiker=" + tiker.toString() + "&interval=" + interval.toString() + "&prikaz=" + prikaz.toString();
         };
     });
