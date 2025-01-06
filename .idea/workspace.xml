@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dd953b6-812d-4c58-a06d-9177c3380f21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domashna4/flask/.idea/flask.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Domashna-DAS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Domashna-DAS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/spring/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +74,7 @@
       <recent name="C:\Users\admin\OneDrive\Desktop\FINKI\Treta godina\Dizajn i Arhitektura na Softver\Domashna-DAS\Domashna4\flask\temp_stocks" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainTestApplication">
+  <component name="RunManager" selected="Python.main_app">
     <configuration name="MainTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mk.ukim.finki.das.main.MainTestApplication" />
       <module name="main" />
