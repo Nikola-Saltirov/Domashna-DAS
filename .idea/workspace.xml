@@ -5,23 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dd953b6-812d-4c58-a06d-9177c3380f21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domashna4/flask/.idea/flask.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Domashna-DAS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Domashna-DAS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna1/lstm_development.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna1/lstm_development.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna1/lstm_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/flask/main_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/flask/main_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/spring/src/main/java/mk/ukim/finki/das/main/web/controller/projectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/src/main/java/mk/ukim/finki/das/main/web/controller/projectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/spring/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/src/main/resources/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/spring/src/main/resources/templates/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/src/main/resources/templates/history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/spring/src/main/resources/templates/projections.html" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/src/main/resources/templates/projections.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/spring/target/classes/mk/ukim/finki/das/main/web/controller/projectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/target/classes/mk/ukim/finki/das/main/web/controller/projectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/spring/target/classes/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/target/classes/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/spring/target/classes/templates/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/target/classes/templates/history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domashna3/spring/target/classes/templates/projections.html" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/target/classes/templates/projections.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domashna3/spring/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Domashna3/spring/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,36 +48,88 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.lstm_model.executor": "Debug",
-    "Python.main_app.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.MainApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/admin/OneDrive/Desktop/FINKI/Treta godina/Dizajn i Arhitektura na Softver/Domashna-DAS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainTestApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lstm_model.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.main_app.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MainTestApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/OneDrive/Desktop/FINKI/Treta godina/Dizajn i Arhitektura na Softver/Domashna-DAS/Domashna4/flask/temp_stocks&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\OneDrive\Desktop\FINKI\Treta godina\Dizajn i Arhitektura na Softver\Domashna-DAS\Domashna4\flask\temp_stocks" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MainTestApplication">
+    <configuration name="MainTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mk.ukim.finki.das.main.MainTestApplication" />
+      <module name="main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mk.ukim.finki.das.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main_app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Domashna-DAS" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Domashna4/flask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Domashna4/flask/main_app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="mk.ukim.finki.das.main.MainApplication" />
+      <module name="main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="mk.ukim.finki.das.main.MainTestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="mk.ukim.finki.das.main.MainTestApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -92,46 +158,18 @@
       <workItem from="1735039160645" duration="1159000" />
       <workItem from="1735232773155" duration="2678000" />
       <workItem from="1735291468809" duration="17116000" />
-      <workItem from="1735315970547" duration="629000" />
+      <workItem from="1735315970547" duration="1000000" />
+      <workItem from="1736154549101" duration="1076000" />
+      <workItem from="1736155649575" duration="15000" />
+      <workItem from="1736166233957" duration="2106000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Domashna3/flask/lstm_model.py</url>
-          <line>145</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Domashna3/flask/lstm_model.py</url>
-          <line>150</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Domashna3/flask/lstm_model.py</url>
-          <line>142</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Domashna3/flask/lstm_model.py</url>
-          <line>135</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Domashna3/flask/lstm_model.py</url>
-          <line>140</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Domashna_DAS$main_app.coverage" NAME="main_app Coverage Results" MODIFIED="1735316353663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Domashna3/flask" />
+    <SUITE FILE_PATH="coverage/Domashna_DAS$main_app.coverage" NAME="main_app Coverage Results" MODIFIED="1736199077545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Domashna4/flask" />
     <SUITE FILE_PATH="coverage/Domashna_DAS$lstm_model.coverage" NAME="lstm_model Coverage Results" MODIFIED="1735315973850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Domashna3/flask" />
   </component>
 </project>
