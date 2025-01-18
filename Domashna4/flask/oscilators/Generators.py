@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from Domashna4.flask.oscilators.Oscillator_Generator import Oscillator_Generator
+from .Oscillator_Generator import *
 from stock_indicators import indicators
 import pandas as pd
 

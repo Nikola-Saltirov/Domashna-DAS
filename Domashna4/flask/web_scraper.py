@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup as bs, BeautifulSoup
 semaphore = threading.Semaphore(6)
 
 def filter1(url):
+    now = time.time()
     resp = requests.get(url)
     soup = bs(resp.text, 'html.parser')
     names = soup.find_all('option')
@@ -22,10 +23,13 @@ def filter1(url):
             names2.append(n)
     print(len(names2))
     df=pl.DataFrame({
-    'Names': names2,
+        'Names': names2,
     })
     df.write_csv('temp_stocks/names.csv')
     filter2()
+    now2 = time.time()
+    print(f"Function took {(now2 - now) / 60:.2f} minutes to complete.")
+    return (now2 - now) / 60
 
 def filter2():
     df=pl.read_csv('temp_stocks/names.csv')

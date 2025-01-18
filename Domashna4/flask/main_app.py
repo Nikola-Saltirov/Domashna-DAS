@@ -2,21 +2,20 @@ import datetime
 
 from flask import Flask, send_file, jsonify, request, make_response
 import polars as pl
+
+from oscilators.Generators import *
 from web_scraper import filter1
 from moving_averages import MovingAverageCrossStrategy
 from lstm_model import StocksAveragePricePredictor
-from oscilators.Generators import *
 app = Flask(__name__)
 
 @app.route('/startup', methods=['GET'])
 def startupScrape():
-    # image_path = "img/forest.png"
     url = 'https://www.mse.mk/mk/stats/symbolhistory/ALK'
-    filter1(url)
+    timer=filter1(url)
     resp={
-        'message': 'finished'
+        'FinishTime': timer
     }
-    # return send_file(image_path, mimetype='image/png')
     return resp
 @app.route('/get_names', methods=['GET'])
 def getNames():
