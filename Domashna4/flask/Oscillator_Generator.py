@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 from stock_indicators.indicators.common import Quote
 import io
 from abc import ABC, abstractmethod
+import os
+
+# Path to the CSV directory
+BASE_DIR = os.getenv("CSV_DIR", "./temp_stocks")
 
 class Oscillator_Generator(ABC):
     def __init__(self, tiker, interval):
@@ -17,7 +21,11 @@ class Oscillator_Generator(ABC):
 
     def read_dataframe(self):
         # Step 1: Read CSV and clean temp_data
-        df = pd.read_csv(f"temp_stocks/temp_data/{self.tiker}.csv")
+        # os.path.join(BASE_DIR, '../names.csv')
+        # df = pd.read_csv(f"temp_stocks/temp_data/{self.tiker}.csv")
+        fileName = f'{self.tiker}.csv'
+        csv_path = os.path.join(BASE_DIR, 'temp_data', fileName)
+        df = pd.read_csv(csv_path)
         df.dropna(inplace=True)
         self.df = df
 

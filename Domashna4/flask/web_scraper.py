@@ -6,6 +6,9 @@ from pathlib import Path
 import polars as pl
 import requests
 from bs4 import BeautifulSoup as bs, BeautifulSoup
+import os
+# Path to the CSV directory
+BASE_DIR = os.getenv("CSV_DIR", "./temp_stocks")
 
 semaphore = threading.Semaphore(6)
 
@@ -25,20 +28,24 @@ def filter1(url):
     df=pl.DataFrame({
         'Names': names2,
     })
-    df.write_csv('temp_stocks/names.csv')
+    csv_path = os.path.join(BASE_DIR, 'names.csv')
+    df.write_csv(csv_path)
     filter2()
     now2 = time.time()
     print(f"Function took {(now2 - now) / 60:.2f} minutes to complete.")
     return (now2 - now) / 60
 
 def filter2():
-    df=pl.read_csv('temp_stocks/names.csv')
+    csv_path = os.path.join(BASE_DIR, 'names.csv')
+    df=pl.read_csv(csv_path)
     names=df['Names']
     newNames=[]
     newDates=[]
     for n in names:
         try:
-            temp=pd.read_csv(f'./temp_stocks/temp_data/{n}.csv')
+            fileName = f'{n}.csv'
+            csv_path = os.path.join(BASE_DIR, 'temp_data', fileName)
+            temp=pd.read_csv(csv_path)
             if temp is not None:
                 date=temp['Date'].iloc[-1]
                 date_obj=datetime.strptime(date, '%d.%m.%Y')
@@ -124,15 +131,21 @@ def update(date, name, rewrite):
                         continue
                 current_date = end_date
                 if rewrite:
-                    df=pd.read_csv(f'./temp_stocks/temp_data/{name}.csv')
+                    fileName = f'{name}.csv'
+                    csv_path = os.path.join(BASE_DIR, 'temp_data', fileName)
+                    df=pd.read_csv(csv_path)
                     newdf=pd.DataFrame(new_list)
                     df = pd.concat([df, newdf], ignore_index=True)
-                    df.to_csv(f'./temp_stocks/temp_data/{name}.csv', index=False)
+                    df.to_csv(csv_path, index=False)
                 else:
                     df=pl.DataFrame(new_list)
-                    df.write_csv(f'temp_stocks/temp_data/{name}.csv')
+                    fileName = f'{name}.csv'
+                    csv_path = os.path.join(BASE_DIR, 'temp_data', fileName)
+                    df.write_csv(csv_path)
             count+=1
-            df = pd.read_csv(f'./temp_stocks/temp_data/{name}.csv')
+            fileName = f'{name}.csv'
+            csv_path = os.path.join(BASE_DIR, 'temp_data', fileName)
+            df = pd.read_csv(csv_path)
             df.drop_duplicates(keep='last', inplace=True)
             df['Date'] = pd.to_datetime(df['Date'], dayfirst=True)
             df.set_index('Date', inplace=True)
@@ -141,7 +154,7 @@ def update(date, name, rewrite):
             df.fillna(0, inplace=True)
             df.rename(columns={'index': 'Date'}, inplace=True)
             df['Date'] = df['Date'].dt.strftime('%d.%m.%Y')
-            df.to_csv(f'temp_stocks/temp_data/{name}.csv', index=False)
+            df.to_csv(csv_path, index=False)
             if dataSecurity is False:
                 continue
             print(f"FINISHED with {name} from thread {id}")

@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/projections")
 public class projectionController {
 
-    private final String FLASK_IMAGE_PROJECTIONS_URL = "http://localhost:5000/generate-image-projections";
+    private final String FLASK_IMAGE_PROJECTIONS_URL = "http://python:5000/generate-image-projections";
     private final RestTemplate restTemplate;
     private final PredictionService predictionService;
 

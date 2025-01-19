@@ -30,7 +30,7 @@ public class PredictionServiceImpl implements PredictionService {
 
     @Override
     public List<String> getNames() {
-        String flaskUrl = "http://localhost:5000/get_names";
+        String flaskUrl = "http://python:5000/get_names";
         // RestTemplate to make the GET request
         RestTemplate restTemplate = new RestTemplate();
         try {
@@ -56,7 +56,7 @@ public class PredictionServiceImpl implements PredictionService {
 
     @Override
     public void getProjections(String tiker, String interval) {
-        String flaskUrl = "http://localhost:5000/get_projections";
+        String flaskUrl = "http://python:5000/get_projections";
 //        String jsonBody = String.format("{\"tiker\": \"%s\", \"interval\": %s}, \"prikaz\": %s}", tiker, interval, prikaz);
         ResponseEntity<Resource> response = restTemplate.exchange(
                 flaskUrl,

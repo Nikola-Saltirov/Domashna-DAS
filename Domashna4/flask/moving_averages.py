@@ -12,6 +12,9 @@ from ta.trend import WMAIndicator
 import ta.volume
 import ta.momentum
 import io
+import os
+# Path to the CSV directory
+BASE_DIR = os.getenv("CSV_DIR", "./temp_stocks")
 
 
 warnings.filterwarnings('ignore')
@@ -26,7 +29,10 @@ def calculate_vwma(df, window):
 def MovingAverageCrossStrategy(tiker='ADIN', start_date=datetime.date.today(), end_date=datetime.date.today(),
                                short_window=20, long_window=50, moving_avg='SMA'):
     stock_symbol = f"temp_stocks/temp_data/{tiker}.csv"
-    stock_df = pd.read_csv(stock_symbol)
+    # stock_df = pd.read_csv(f"temp_stocks/temp_data/{tiker}.csv")
+    fileName=f'{tiker}.csv'
+    csv_path = os.path.join(BASE_DIR, 'temp_data', fileName)
+    stock_df = pd.read_csv(csv_path)
     stock_df['max'] = [
         ''.join([c if c not in '.,' else ',' if c == '.' else '.' for c in str(num)])
         if pd.notnull(num) else ''

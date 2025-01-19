@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from .Oscillator_Generator import *
+from Oscillator_Generator import *
 from stock_indicators import indicators
 import pandas as pd
 

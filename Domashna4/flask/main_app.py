@@ -1,12 +1,16 @@
 import datetime
 
-from flask import Flask, send_file, jsonify, request, make_response
+from flask import Flask, jsonify, request, make_response
 import polars as pl
 
-from oscilators.Generators import *
 from web_scraper import filter1
 from moving_averages import MovingAverageCrossStrategy
 from lstm_model import StocksAveragePricePredictor
+from Generators import *
+import os
+
+# Path to the CSV directory
+BASE_DIR = os.getenv("CSV_DIR", "./temp_stocks")
 app = Flask(__name__)
 
 @app.route('/startup', methods=['GET'])
@@ -17,10 +21,20 @@ def startupScrape():
         'FinishTime': timer
     }
     return resp
+
 @app.route('/get_names', methods=['GET'])
 def getNames():
-    df = pl.read_csv('temp_stocks/names.csv')
+    # Combine BASE_DIR and relative path to get the full path to the CSV file
+    csv_path = os.path.join(BASE_DIR, 'names.csv')  # or adjust if needed
+    print(f"Trying to read CSV from: {csv_path}")  # Debugging step to ensure correct path
+
+    # Read the CSV file
+    df = pl.read_csv(csv_path)
+
+    # Extract the 'Names' column and convert it to a list
     names = df['Names'].to_list()
+
+    # Return the names as JSON
     return jsonify(names)
 
 @app.route('/generate-image-history', methods=['GET'])
@@ -91,6 +105,8 @@ def getImageProjections():
     response = make_response(img_io.read())
     response.headers['Content-Type'] = 'image/png'
     return response
-
+@app.route('/health', methods=['GET'])
+def health_check():
+    return "OK", 200
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

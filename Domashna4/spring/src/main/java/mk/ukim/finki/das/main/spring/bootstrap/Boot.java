@@ -12,7 +12,7 @@ public class Boot {
 
     @PostConstruct
     public void init(){
-        String flaskUrl = "http://localhost:5000/startup";
+        String flaskUrl = "http://python:5000/startup";
         RestTemplate restTemplate = new RestTemplate();
         String jsonResponse = restTemplate.getForObject(flaskUrl, String.class);
         ObjectMapper objectMapper = new ObjectMapper();

@@ -11,6 +11,10 @@ from keras.layers import Input, LSTM, Dense
 from datetime import timedelta
 import io
 from matplotlib.ticker import MaxNLocator
+import os
+
+# Path to the CSV directory
+BASE_DIR = os.getenv("CSV_DIR", "./temp_stocks")
 
 class StocksAveragePricePredictor:
     def __init__(self, tiker, lag, timelapse, target):
@@ -19,21 +23,43 @@ class StocksAveragePricePredictor:
         self.timelapse = timelapse
         self.attributes = ['avg_price']
         self.n_features = len(self.attributes)
-        self.dataset = pd.read_csv(f"temp_stocks/temp_data/{tiker}.csv")
+        # self.dataset = pd.read_csv(f"temp_stocks/temp_data/{tiker}.csv")
+        fileName = f'{tiker}.csv'
+        csv_path = os.path.join(BASE_DIR, 'temp_data', fileName)
+        self.dataset = pd.read_csv(csv_path)
         self.target = target
 
+    # def parse_numeric_to_float(self):
+    #     locale.setlocale(locale.LC_ALL, 'de_DE.UTF-8')
+    #     for col in self.dataset.columns:
+    #         if col=='Date':
+    #             self.dataset[col] = pd.to_datetime(self.dataset[col], format='%d.%m.%Y')
+    #         elif self.dataset[col].dtype == 'object':
+    #             try:
+    #                 self.dataset[col] = self.dataset[col].apply(locale.atof).astype('float64')
+    #             except:
+    #                 pass
+    #     return self.dataset
     def parse_numeric_to_float(self):
-        locale.setlocale(locale.LC_ALL, 'de_DE.UTF-8')
+        self.dataset.to_csv('temp_data_unconverted2.csv', index=False)
+
+        def german_str_to_float(value):
+            try:
+                # Remove thousands separator (.) and replace decimal separator (,)
+                return float(value.replace('.', '').replace(',', '.'))
+            except ValueError:
+                return value  # Return the original value if conversion fails
+
         for col in self.dataset.columns:
-            if col=='Date':
+            if col == 'Date':
                 self.dataset[col] = pd.to_datetime(self.dataset[col], format='%d.%m.%Y')
             elif self.dataset[col].dtype == 'object':
                 try:
-                    self.dataset[col] = self.dataset[col].apply(locale.atof).astype('float64')
+                    self.dataset[col] = self.dataset[col].apply(german_str_to_float).astype('float64')
                 except:
                     pass
+        self.dataset.to_csv('temp_data_converted2.csv', index=False)
         return self.dataset
-
 
     def drop_columns(self, dataframe: pd.DataFrame, columns):
         to_delete = [col for col in dataframe.columns if col not in columns]

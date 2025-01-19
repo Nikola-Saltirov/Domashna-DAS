@@ -31,7 +31,7 @@ public class HistoricalServiceImpl implements HistoricalService {
 
     @Override
     public List<String>getNames() {
-        String flaskUrl = "http://localhost:5000/get_names";
+        String flaskUrl = "http://python:5000/get_names";
 
         // RestTemplate to make the GET request
         RestTemplate restTemplate = new RestTemplate();
@@ -86,7 +86,7 @@ public class HistoricalServiceImpl implements HistoricalService {
 
     @Override
     public void getImg(String tiker, String prikaz, String interval) {
-        String flaskUrl = "http://localhost:5000/get_image";
+        String flaskUrl = "http://python:5000/get_image";
         String jsonBody = String.format("{\"tiker\": \"%s\", \"interval\": %s}, \"prikaz\": %s}", tiker, interval, prikaz);
         ResponseEntity<Resource> response = restTemplate.exchange(
                 flaskUrl,

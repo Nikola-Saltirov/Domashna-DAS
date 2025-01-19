@@ -10,9 +10,9 @@ public class restMainController {
 
     private final RestTemplate restTemplate;
 
-    private final String FLASK_IMAGE_HISTORY_URL = "http://localhost:5000/generate-image-history";
+    private final String FLASK_IMAGE_HISTORY_URL = "http://python:5000/generate-image-history";
 
-    private final String FLASK_IMAGE_PROJECTIONS_URL = "http://localhost:5000/generate-image-projections";
+    private final String FLASK_IMAGE_PROJECTIONS_URL = "http://python:5000/generate-image-projections";
 
     public restMainController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;

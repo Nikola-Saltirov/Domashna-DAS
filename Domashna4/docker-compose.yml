@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  python:
+    build:
+      context: ./flask
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - CSV_DIR=/app/temp_stocks
+    container_name: python-container
+    networks:
+      - my_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  springboot:
+    build:
+      context: ./spring
+      dockerfile: Dockerfile
+    ports:
+      - "9090:8080"
+    depends_on:
+      python:
+        condition: service_healthy
+    # restart: always
+
+    container_name: springboot-container
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
